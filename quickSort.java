@@ -39,6 +39,6 @@ class Main{
 	public static void main(String[] args){
 		Main a = new Main();
 		int arr[] = {2,8,6,0,4,9};
-		a.mergeSort(arr);
+		a.quickSort(arr);
 	}
 }
