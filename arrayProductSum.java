@@ -24,3 +24,6 @@ class Main{
 		System.out.println(productSum(array, 1));
 	}
 }
+
+//time complexity is O(N)
+//space complexity is O(d) where d = depth
