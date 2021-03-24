@@ -48,3 +48,6 @@ class Main{
 	    }
 	}
 }
+
+//time complexity = O(8 ^ (M*N))
+//space complexity = O(m*n)
