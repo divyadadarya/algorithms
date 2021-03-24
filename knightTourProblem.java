@@ -1,7 +1,7 @@
 class Main{
 
-	private static int[] pathRow = {2, 1, -1, -2, -1, 1, 2};
-	private static int[] pathCol = {1, 2, 2, 1, -2, -2, -1};
+	private static int[] pathRow = {2, 1, -1, -2, -2, -1, 1, 2};
+	private static int[] pathCol = {1, 2, 2, 1,-1, -2, -2, -1};
 
 	private static boolean isValidMove(int[][] board, int newRow, int newCol){
 
@@ -10,7 +10,7 @@ class Main{
 
 	private static boolean knightTour(int[][] board, int row, int col, int steps){
 
-		if(step == 63){
+		if(steps == 63){
 			for(int i = 0; i < board.length; i++){
 				for(int j = 0; j < board.length; j++){
 					System.out.print(board[i][j] + " ");
@@ -28,14 +28,14 @@ class Main{
 			int newCol = col + pathCol[i];
 
 			if(isValidMove(board, newRow, newCol)){
-				step++;
-				board[row][col] = step;
+				steps++;
+				board[newRow][newCol] = steps;
 
-				if(knightTour(board, newRow, newCol, step)){
+				if(knightTour(board, newRow, newCol, steps)){
 					return true;
 				}
 
-				step--;
+				steps--;
 				board[newRow][newCol] = 0;
 			}
 		}
@@ -46,15 +46,15 @@ class Main{
 	public static void main(String[] args){
 
 		int[][] board = {{0, 0, 0, 0, 0, 0, 0, 0},
-	                     {0, 0, 0, 0, 0, 0, 0, 0},
-	                     {0, 0, 0, 0, 0, 0, 0, 0},
-	                     {0, 0, 0, 0, 0, 0, 0, 0},
-	                     {0, 0, 0, 0, 0, 0, 0, 0},
-	                     {0, 0, 0, 0, 0, 0, 0, 0},
-	                     {0, 0, 0, 0, 0, 0, 0, 0},
-	                     {0, 0, 0, 0, 0, 0, 0, 0}};
+	                    {0, 0, 0, 0, 0, 0, 0, 0},
+	                    {0, 0, 0, 0, 0, 0, 0, 0},
+	                    {0, 0, 0, 0, 0, 0, 0, 0},
+	                    {0, 0, 0, 0, 0, 0, 0, 0},
+	                    {0, 0, 0, 0, 0, 0, 0, 0},
+	                    {0, 0, 0, 0, 0, 0, 0, 0},
+	                    {0, 0, 0, 0, 0, 0, 0, 0}};
 
-	    knightTour(board, 0, 0, 0);
+    knightTour(board, 0, 0, 0);
 
 
 	}
