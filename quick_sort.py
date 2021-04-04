@@ -13,13 +13,9 @@ def partition(arr, lb, ub):
             right-=1
             
         if left < right:
-            temp = arr[left]
-            arr[left] = arr[right]
-            arr[right] = temp
+            arr[left], arr[right] = arr[right], arr[left]
             
-    temp = arr[lb]
-    arr[lb] = arr[right]
-    arr[right] = temp
+    arr[lb], arr[right] = arr[right], arr[lb]
     
     return right
 
