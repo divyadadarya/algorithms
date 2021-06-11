@@ -15,7 +15,7 @@ class Main{
 
 	static HuffmanNode root;
 
-	static Map<Character, String> charBinaryMapping = new HashMap<>();
+	static Map<Character, String> charBinaryMapping = new HashMap<Character, String>();
 
 	private static HuffmanNode generateTree(Map<Character, Integer> f){
 		PriorityQueue<HuffmanNode> priorityQ = new PriorityQueue<HuffmanNode>();
@@ -30,7 +30,7 @@ class Main{
 			node.left = null;
 			node.right = null;
 
-			priorityQ.offer(node);
+			priorityQ.add(node);
 		}
 
 		while(priorityQ.size() > 1){
@@ -49,7 +49,7 @@ class Main{
 			mergeNode.data = '-';
 			root = mergeNode;
 
-			priorityQ.offer(mergeNode);
+			priorityQ.add(mergeNode);
 		}
 
 		return priorityQ.poll();
@@ -63,17 +63,14 @@ class Main{
 				charBinaryMapping.put(node.data, str.toString());
 			}
 
-			else{
-				str.append('0');
-				setBinaryCode(node.left, str);
-				str.deleteCharAt(str.length() - 1);
+			str.append('0');
+			setBinaryCode(node.left, str);
+			str.deleteCharAt(str.length() - 1);
 
-				str.append('1');
-				setBinaryCode(node.right, str);
-				str.deleteCharAt(str.length() - 1);
-			}
+			str.append('1');
+			setBinaryCode(node.right, str);
+			str.deleteCharAt(str.length() - 1);
 		}
-		
 	}
 
 	private static String encode(String str){
