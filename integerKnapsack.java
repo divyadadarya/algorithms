@@ -1,6 +1,6 @@
 class Main{
 
-	//BOTTOM-UP MEMOIZATION + RECURSION
+	//BOTTOM-UP (MEMOIZATION + RECURSION)
 	private static int getMaxProfitBottomUp(int[] weight, int[] profit, int n, int capacity){
 		
 		int[][] values = new int[n+1][capacity+1];
@@ -37,7 +37,7 @@ class Main{
 		return values[n][capacity];
 	} 
 
-	//TOP-DOWN MEMOIZATION + RECURSION
+	//TOP-DOWN (MEMOIZATION + RECURSION)
 	private static int getMaxProfit(int[] weight, int[] profit, int n, int capacity, int[][] values){
 		if(n == 0 || capacity == 0){
 			values[n][capacity] = 0;
