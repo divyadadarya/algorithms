@@ -90,3 +90,21 @@ class Main{
 		System.out.println(minOperationsBottomUp);
 	}
 }
+
+/*
+
+RECURSION
+Time Complexity = O(2^N) 
+Space Complexity = O(N)
+
+TOP-DOWN
+Time Complexity = O(N^3)
+Space Complexity = O(N^2)
+
+BOTTOM-UP
+Time Complexity = O(N^3)
+Space Complexity = O(N^2)
+
+where N = length of sequence array
+
+*/ 
