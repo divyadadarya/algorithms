@@ -47,6 +47,8 @@ def getLds(nums, i, prev):
 
 	return max(excl, incl)
 
+	
+
 nums = [20, 8, 12, 16, 10, 9, 18, 7]
 
 rows, cols = (len(nums) + 1, len(nums))
