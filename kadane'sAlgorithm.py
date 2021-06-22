@@ -9,7 +9,7 @@ def maxSumSubArray(arr):
 
 	return globalMax
 
-arr = [-2, -1, 3, -2, 4, 3, -3, -2, 5]
+arr = [-2, -1, 3, -2, 4, 3, -3, 5]
 
 maxSum = maxSumSubArray(arr)
 
