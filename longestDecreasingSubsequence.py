@@ -11,7 +11,6 @@ def getLdsBottomUp(nums):
 		for j in range(0, i):
 			if nums[i] < nums[j]:
 				maxLds[i] = max(maxLds[i], maxLds[j] + 1)
-
 		maxSoFar = max(maxLds[i], maxSoFar)
 
 	return maxSoFar
