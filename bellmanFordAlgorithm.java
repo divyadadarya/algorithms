@@ -57,7 +57,7 @@ class Main{
 			}
 		}
 
-		//print
+		//print the distances of each vertex
 		for(int i = 0; i < V; i++){
 			System.out.println(i + " : " + dist[i]);
 		}
