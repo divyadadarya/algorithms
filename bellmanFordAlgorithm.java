@@ -8,7 +8,7 @@ class Main{
 		}
 	}
 
-	int V, E; //V = number of vertices, E = number of edges
+	int V, E; // V = number of vertices, E = number of edges
 	Edge edge[];
 
 	Main(int v, int e){
