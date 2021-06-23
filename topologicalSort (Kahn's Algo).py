@@ -31,7 +31,7 @@ class Graph:
                 q.put(i)
                 
         c = 0
-        vec = []
+
         linearOrder = []
         
         while q.empty() == False:
