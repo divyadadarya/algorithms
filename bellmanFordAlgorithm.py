@@ -34,7 +34,7 @@ class Graph:
                 
                 if(dist[u] != float('inf') and dist[u] + c < dist[v]):
                     dist[v] = dist[u] + c
-                    
+
         # negative cycle           
         for j in range(0, e):
             u = self.edge[j].s
@@ -43,7 +43,8 @@ class Graph:
             
             if(dist[u] != float('inf') and dist[u] + c < dist[v]):
                 print("The graph contains negative cycle")
-                
+
+        #Print the distances of each vertex      
         print("Vertex Distance from Source")
         for i in range(V):
             print("{0}\t\t{1}".format(i, dist[i]))
