@@ -82,3 +82,7 @@ class Main{
 		g.topologicalSort();
 	}
 }
+
+//Time Complexity = O(V + E)
+//Space Coplexity = O(V)
+//where V = number of Vertices and E = number of Edges
