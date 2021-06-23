@@ -107,4 +107,4 @@ g.edge[8].s = 5
 g.edge[8].d = 4
 g.edge[8].w = -3
 
-g.bellmanFord(0) #graph and source vertex
+g.bellmanFord(0) #source vertex
