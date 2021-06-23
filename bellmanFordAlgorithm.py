@@ -35,6 +35,7 @@ class Graph:
                 if(dist[u] != float('inf') and dist[u] + c < dist[v]):
                     dist[v] = dist[u] + c
                     
+        # negative cycle           
         for j in range(0, e):
             u = self.edge[j].s
             v = self.edge[j].d
