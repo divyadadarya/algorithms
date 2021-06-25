@@ -118,9 +118,16 @@ class Main{
 		tree.insert(13);
 		tree.insert(15);
 		tree.insert(7);
+		tree.insert(8);
+		tree.insert(5);
+		tree.insert(2);
+		tree.insert(6);
+		tree.insert(14);
+		tree.insert(16);
 
 		tree.printInOrder(tree.root);
 
+		System.out.println("Search in BST : ");
 		System.out.println(tree.search(7).value);
 
 		System.out.println("Deleting 13 : ");
