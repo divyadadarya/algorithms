@@ -25,11 +25,7 @@ class BinarySearchTree{
 	}
 
 	//INSERT
-	public void insert(int value){
-		this.root = insertInBST(this.root, value);
-	}
-
-	private Node insertBST(Node node, int value){
+	private Node insertInBST(Node node, int value){
 
 		if(node == null)
 			return new Node(value);
@@ -45,11 +41,12 @@ class BinarySearchTree{
 		return node;
 	}
 
-	//SEARCH
-	public Node search(int value){
-		return searchInBST(this.root, value);
+	public void insert(int value){
+		this.root = insertInBST(this.root, value);
 	}
 
+
+	//SEARCH
 	private Node searchInBST(Node node, int value){
 
 		if(node == null || node.value == value)
@@ -62,6 +59,54 @@ class BinarySearchTree{
 		else{
 			return searchInBST(node.right, value);
 		}
+	}
+
+	public Node search(int value){
+		return searchInBST(this.root, value);
+	}
+
+
+	//DELETE
+	private int minValue(Node right){
+		int min = right.value;
+
+		//leftmost value
+		while(right.left != null){
+			min = right.left.value;
+			right = right.left;
+		}
+
+		return min;
+	}
+
+	private Node deleteFromBST(Node node, int value){
+		if(node == null)
+			return node;
+
+		if(value < node.value){
+			node.left = deleteFromBST(node.left, value);
+		}
+
+		else if(value > node.value){
+			node.right = deleteFromBST(node.right, value);
+		} 
+
+		else{
+			if(node.left == null)
+				return node.right;
+
+			if(node.right == null)
+				return node.left;
+
+			node.value = minValue(node.right);
+			node.right = deleteFromBST(node.right, node.value);
+		}
+
+		return node;
+	}
+
+	public void delete(int value){
+		deleteFromBST(this.root, value);
 	}
 }
 
@@ -77,5 +122,9 @@ class Main{
 		tree.printInOrder(tree.root);
 
 		System.out.println(tree.search(7).value);
+
+		System.out.println("Deleting 13 : ");
+		tree.delete(13);
+		tree.printInOrder(tree.root);
 	}
 }
