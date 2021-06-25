@@ -26,7 +26,7 @@ class BinarySearchTree{
 
 	//INSERT
 	public void insert(int value){
-		this.root = insertBST(this.root, value);
+		this.root = insertInBST(this.root, value);
 	}
 
 	private Node insertBST(Node node, int value){
@@ -35,17 +35,34 @@ class BinarySearchTree{
 			return new Node(value);
 
 		if(value < node.value){
-			node.left = insertBST(node.left, value);
+			node.left = insertInBST(node.left, value);
 		}
 
 		else if(value > node.value){
-			node.right = insertBST(node.right, value);
+			node.right = insertInBST(node.right, value);
 		}
 
 		return node;
 	}
 
-	
+	//SEARCH
+	public Node search(int value){
+		return searchInBST(this.root, value);
+	}
+
+	private Node searchInBST(Node node, int value){
+
+		if(node == null || node.value == value)
+			return node;
+
+		if(value < node.value){
+			return searchInBST(node.left, value);
+		}
+
+		else{
+			return searchInBST(node.right, value);
+		}
+	}
 }
 
 class Main{
@@ -58,5 +75,7 @@ class Main{
 		tree.insert(7);
 
 		tree.printInOrder(tree.root);
+
+		System.out.println(tree.search(7).value);
 	}
 }
