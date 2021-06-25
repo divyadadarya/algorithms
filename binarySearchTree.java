@@ -16,11 +16,11 @@ class BinarySearchTree{
 		root = null;
 	}
 
-	public void printInOrder(Node node){
-		if(node != null){
-			printInOrder(node.left);
-			System.out.println(node.value);
-			printInOrder(node.right);
+	public void printInOrder(Node root){
+		if(root != null){
+			printInOrder(root.left);
+			System.out.println(root.value);
+			printInOrder(root.right);
 		}
 	}
 
