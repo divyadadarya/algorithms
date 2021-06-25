@@ -43,6 +43,9 @@ class Main{
 		root.right.left = new Node(7);
 		root.right.right = new Node(9);
 		root.left.left.right = new Node(6);
+		
+		root.printInOrder(root);
+    	System.out.println("---------------");
 
 		root.invertTree(root);
 		root.printInOrder(root);
