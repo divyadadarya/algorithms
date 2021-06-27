@@ -1,44 +1,64 @@
 class Main{
-	void quickSort(int arr[]){
-        qSort(arr, 0, arr.length-1);
-        int i;
-        for(i=0;i<arr.length;i++)
-        	System.out.print(arr[i]);
-        System.out.println();
-    }
 
+	private static int partition(int[] arr, int lb, int ub){
 
+		int pivot = arr[lb];
+		int left = lb;
+		int right = ub;
+		int temp;
 
-	void qSort(int arr[], int low, int high){
-	    if (low<high){ 
-	      int pi=partition(arr, low, high); 
-	      qSort(arr, low, pi-1); 
-	      qSort(arr, pi+1, high); 
-	    }
+		while(left < right){
+
+			while(arr[left] <= pivot && left < arr.length - 1){
+				left++;
+			}
+
+			while(arr[right] > pivot && right > 0){
+				right--;
+			}
+
+			//swap
+
+			if(left < right){
+				temp = arr[left];
+				arr[left] = arr[right];
+				arr[right] = temp;
+			}
+		}
+
+		//swap right with lb/pivot
+
+		temp = arr[lb];
+		arr[lb] = arr[right];
+		arr[right] = temp;
+
+		return right;
 	}
 
+	private static void quickSort(int[] arr, int lb, int ub){
+		int index;
 
+		if(lb < ub){
 
-	int partition(int arr[], int low, int high){ 
-	    int pivot=arr[high];  
-	    int i=(low-1);
-	    for(int j=low;j<high;j++){ 
-	      if (arr[j]<pivot){ 
-	        i++; 
-	        int temp=arr[i]; 
-	        arr[i]=arr[j]; 
-	        arr[j]=temp; 
-	      } 
-	    }
-	    int temp=arr[i+1]; 
-	    arr[i+1]=arr[high]; 
-	    arr[high]=temp; 
-	    return i+1; 
+			index = partition(arr, lb, ub);
+
+			quickSort(arr, lb, index-1);
+			quickSort(arr, index+1, ub);
+		}
 	}
 
 	public static void main(String[] args){
-		Main a = new Main();
-		int arr[] = {2,8,6,0,4,9};
-		a.quickSort(arr);
+		int arr[] = {10, 1, 67, 20, 56, 34, 43, 90, 54, 8, 0};
+
+		int n = arr.length;
+
+		quickSort(arr, 0, n-1);
+
+		for(int i = 0; i < n; i++){
+			System.out.print(arr[i] + " ");
+		}
 	}
 }
+
+//time complexity = O(N^2)
+//space complexity = O(N)
