@@ -28,7 +28,7 @@ class Main{
 	void dfsTraversal(int vertex){
 		visited[vertex] = true;
 
-		System.out.println(vertex + " ");
+		System.out.print(vertex + " ");
 
 		Iterator<Integer> i = graph[vertex].listIterator();
 		while(i.hasNext()){
@@ -61,5 +61,3 @@ class Main{
 		g.dfsTraversal(1);
 	}
 }
-
-//1 2 4 7 10 5 8 11 12 3 6 9
