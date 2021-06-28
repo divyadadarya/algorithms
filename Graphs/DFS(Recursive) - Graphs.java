@@ -25,7 +25,7 @@ class Main{
 	}
 
 	//DFS - Recursion
-	void dfsTraversal(int vertex){
+	void dfsTraversalRecursive(int vertex){
 		visited[vertex] = true;
 
 		System.out.print(vertex + " ");
@@ -34,7 +34,33 @@ class Main{
 		while(i.hasNext()){
 			int adj = i.next();
 			if(!visited[adj]){
-				dfsTraversal(adj);
+				dfsTraversalRecursive(adj);
+			}
+		}
+	}
+
+	//DFS - Iterative
+	void dfsTraversalIterative(int s){
+		Arrays.fill(visited, false);
+
+		Stack<Integer> stack = new Stack();
+
+		stack.push(s);
+		while(!stack.empty()){
+			s = stack.pop();
+
+			if(!visited[s]){
+				System.out.print(s + " ");
+				visited[s] = true;
+			}
+
+			Iterator<Integer> itr = graph[s].iterator();
+
+			while(itr.hasNext()){
+				int v = itr.next();
+				if(!visited[v]){
+					stack.push(v);
+				}
 			}
 		}
 	}
@@ -58,6 +84,11 @@ class Main{
 		g.addEdge(11, 12);
 
 		System.out.println("DFS Traversal - Recursive");
-		g.dfsTraversal(1);
+		g.dfsTraversalRecursive(1);
+
+		System.out.println();
+
+		System.out.println("DFS Traversal - Iterative");
+		g.dfsTraversalIterative(1);
 	}
 }
