@@ -69,7 +69,7 @@ class Main{
 		visited = new boolean[n];
 		stack = new Stack<>();
 
-		Array.fill(dfsNum, -1);
+		Arrays.fill(dfsNum, -1);
 
 		for(int i = 0; i < n; i++){
 			if(dfsNum[i] == -1){
