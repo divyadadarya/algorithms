@@ -28,7 +28,7 @@ class Main{
 	}
 
 	private static void addEdge(LinkedList<Integer>[] graph, int from, int to){
-		graph[from].add[to];
+		graph[from].add(to);
 	}
 
 	private void dfs(int curr){
