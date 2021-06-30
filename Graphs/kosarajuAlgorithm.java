@@ -47,8 +47,8 @@ class Main{
 		stack.push(curr);
 	}
 
-	private LinkedList<Integer> reverse(){
-		LinkedList<Integer> rev = createGraph(n);
+	private LinkedList<Integer>[] reverse(){
+		LinkedList<Integer>[] rev = createGraph(n);
 
 		for(int u = 0; u < n; u++){
 			Iterator<Integer> i = graph[u].iterator();
@@ -61,7 +61,7 @@ class Main{
 		return rev;
 	}
 
-	private void df2(LinkedList<Integer> revGraph, int curr, boolean[] visited){
+	private void dfs2(LinkedList<Integer>[] revGraph, int curr, boolean[] visited){
 		visited[curr] = true;
 		System.out.print(curr + " ");
 
@@ -86,7 +86,7 @@ class Main{
 		}
 
 		//step 2 - reverse the graph
-		LinkedList<Integer> revGraph = reverse();
+		LinkedList<Integer>[] revGraph = reverse();
 
 		Arrays.fill(visited, false);
 
