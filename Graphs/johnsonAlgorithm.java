@@ -21,11 +21,11 @@ class Main{
 		for(int i = 0; i < v - 1; i++){
 			for(List<Integer> li : edges){
 				int u = li.get(0); //source of edge
-				int v = li.get(1); //destination
+				int v1 = li.get(1); //destination
 				int w = li.get(2); //weight
 
-				if(dist[u] != Integer.MAX_VALUE && (dist[u] + w < dist[v])){
-					dist[v] = dist[u] + w;
+				if(dist[u] != Integer.MAX_VALUE && (dist[u] + w < dist[v1])){
+					dist[v1] = dist[u] + w;
 				}
 			}
 		}
@@ -80,7 +80,7 @@ class Main{
 	private static void allPairShortestPath(int[][] graph){
 		List<List<Integer>> edges = new ArrayList<List<Integer>>();
 
-		for(int u = 0; u < graph; u++){
+		for(int u = 0; u < graph.length; u++){
 			for(int v = 0; v < graph[u].length; v++){
 				if(graph[u][v] != 0){
 					edges.add(List.of(u, v, graph[u][v])); //source, destination, weight
@@ -96,7 +96,7 @@ class Main{
 
 		System.out.println("Modified Graph after performing Bellman Ford Algorithm :");
 
-		for(int u = 0; u < graph; u++){
+		for(int u = 0; u < graph.length; u++){
 			for(int v = 0; v < graph[u].length; v++){
 				if(graph[u][v] != 0){
 					newGraph[u][v] = distance[u] + graph[u][v] - distance[v];
