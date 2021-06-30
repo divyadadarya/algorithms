@@ -31,6 +31,76 @@ class Main{
 		graph[from].add(to);
 	}
 
+	private void dfs(int curr, boolean[] visited){
+		visited[curr] = true;
+
+		//recur for all adjacent vertices to current vertex
+		Iterator<Integer> i = graph[curr].iterator();
+		while(i.hasNext()){
+			int to = i.next();
+			if(!visited[to]){
+				dfs(to, visited);
+			}
+		}
+
+		//push vertex to stack
+		stack.push(curr);
+	}
+
+	private LinkedList<Integer> reverse(){
+		LinkedList<Integer> rev = createGraph(n);
+
+		for(int u = 0; u < n; u++){
+			Iterator<Integer> i = graph[u].iterator();
+			while(i.hasNext()){
+				int v = i.next();
+				addEdge(rev, v, u);
+			}
+		}
+
+		return rev;
+	}
+
+	private void df2(LinkedList<Integer> revGraph, int curr, boolean[] visited){
+		visited[curr] = true;
+		System.out.print(curr + " ");
+
+		//look for adjacet vertices
+		Iterator<Integer> i = revGraph[curr].iterator();
+		while(i.hasNext()){
+			int next = i.next();
+			dfs2(revGraph, next, visited);
+		}
+	}
+
+	public void solve(){
+		stack = new Stack<>();
+		visited = new boolean[n];
+		Arrays.fill(visited, false);
+
+		//step 1 - DFS traversal and fill stack
+		for(int i = 0; i < n; i++){
+			if(!visited[i]){
+				dfs(i, visited);
+			}
+		}
+
+		//step 2 - reverse the graph
+		LinkedList<Integer> revGraph = reverse();
+
+		Arrays.fill(visited, false);
+
+		//step 3 - second dfs while stack becomes empty
+		while(!stack.isEmpty()) {
+			int curr = stack.pop();
+			//look for connected vertices
+			if(!visited[curr]){
+				dfs2(revGraph, curr, visited);
+				System.out.println();
+			}
+		}
+	}
+
 	public static void main(String[] args){
 		int n = 8;
 		LinkedList<Integer>[] graph = createGraph(n);
@@ -46,5 +116,7 @@ class Main{
 		addEdge(graph, 6, 7);
 
 		Main sccSolver = new Main(graph);
+		System.out.println("Strongly connected components are : ");
+		sccSolver.solve();
 	}
 }
