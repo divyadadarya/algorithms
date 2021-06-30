@@ -69,7 +69,8 @@ class Main{
 		Iterator<Integer> i = revGraph[curr].iterator();
 		while(i.hasNext()){
 			int next = i.next();
-			dfs2(revGraph, next, visited);
+			if(!visited[next])
+				dfs2(revGraph, next, visited);
 		}
 	}
 
