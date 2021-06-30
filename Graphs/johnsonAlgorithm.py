@@ -10,7 +10,7 @@ def bellmanFord(edges, v):
         edges.append([v, i, 0])
             
     for i in range(0, v):
-        for j in edges
+        for j in edges:
             u = j[0]
             d = j[1]
             w = j[2]
@@ -56,6 +56,7 @@ def dijkstra(graph, newGraph, src):
         print(distance[i])
 
 def allPairShortestPath(graph):
+    edges = []
     for u in range(0, len(graph)):
         for v in range(0, len(graph[0])):
             if graph[u][v] != 0:
