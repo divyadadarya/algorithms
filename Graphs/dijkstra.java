@@ -57,5 +57,5 @@ class Main{
 	}
 }
 
-//Time Complexity - O(VlogE)
+//Time Complexity - O(VlogE) (single source)
 //Space Complexity - O(n)
